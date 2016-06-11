@@ -6,10 +6,10 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -101,6 +101,7 @@ public class PlayRecipe extends AppCompatActivity {
         trimArray(times);
 
         textView.setText("");
+        textView.setMovementMethod(new ScrollingMovementMethod());
         for(int i=0;i<rec_steps.size(); i++){
             // Add + quantity + of + ingridient + and maintain + temp + for time + time
             String stepX = rec_steps.get(i);
@@ -108,7 +109,7 @@ public class PlayRecipe extends AppCompatActivity {
             String ingredient = stepX.substring(2, dash);
             String qty = stepX.substring(dash + 1, stepX.length());
             String makeStep = "Add " + qty + " of " + ingredient + " and maintain " + temperatures.get(i)
-                    +" C tempearture for time " + times.get(i) + "s";
+                    +" C temperature for time " + times.get(i) + "s";
             textView.setText(textView.getText() + "Step " + (i+1) + " " + makeStep+ "\n\n");
         }
 

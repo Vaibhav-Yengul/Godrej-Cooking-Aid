@@ -6,9 +6,10 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -88,6 +89,7 @@ public class RecordRecipe extends AppCompatActivity {
         rec_steps = new ArrayList<String>(Arrays.asList(step.split(",")));
         Toast.makeText(this, rec_steps.toString(),Toast.LENGTH_SHORT).show();
 
+        textView.setMovementMethod(new ScrollingMovementMethod());
 
         btnConnect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
